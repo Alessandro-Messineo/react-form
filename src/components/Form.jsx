@@ -32,21 +32,23 @@ export default function Form() {
                     placeholder='Inserisci una notizia'
                     value={createNews}
                     onChange={(e) => { setCreateNews(e.target.value) }}
+                    required
                 />
                 <button type='submit'>Inserisci</button>
             </form>
-
-            <ul>
-                {news.map((a, index) => (
-                    <li
-                        key={index}>
-                        {a}
-                        <button onClick={() => removeNews(index)}>
-                            Elimina
-                        </button>
-                    </li>
-                ))}
-            </ul>
+            <div className='container-list'>
+                <ul>
+                    {news.map((news, index) => (
+                        <li
+                            key={index}>
+                            {news}
+                            <button onClick={() => removeNews(index)}>
+                               <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </>
     )
 }
